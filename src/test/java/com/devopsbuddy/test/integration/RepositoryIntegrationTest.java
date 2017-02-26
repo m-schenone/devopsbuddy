@@ -38,10 +38,6 @@ public class RepositoryIntegrationTest {
     @Autowired
     private UserRepository userRepository;
 
-    private static final int BASIC_PLAN_ID = 1;
-    private static final int BASIC_ROLE_ID = 1;
-    private static final int BASIC_USER_ID = 1;
-
 
     @Before
     public void init() {
@@ -110,6 +106,21 @@ public class RepositoryIntegrationTest {
 
     private Role createRole(RolesEnum rolesEnum) {
         return new Role(rolesEnum);
+    }
+
+    private User createBasicUser() {
+        User user = new User();
+        user.setUsername("basicUser");
+        user.setPassword("secret");
+        user.setEmail("me@example.com");
+        user.setFirstName("firstName");
+        user.setLastName("lastName");
+        user.setCountry("GB");
+        user.setEnabled(true);
+        user.setPhoneNumber("123456789");
+        user.setDescription("A basic user");
+        user.setProfileImageUrl("http://blabla.com/basicuser");
+        return user;
     }
 
 }
